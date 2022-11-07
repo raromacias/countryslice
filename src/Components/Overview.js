@@ -9,14 +9,32 @@ const Overview = () => {
             <h2>'{currentDisplay.name.common}'</h2>
 
             <table className="overview-table">
+                <tbody>
                 <tr>
-                    <td>Capital:</td>
-                    <td>{currentDisplay.capital}</td>
+                    <th>Borders: </th>
+                    <td key={currentDisplay.name.official}>
+                        {currentDisplay.borders ? currentDisplay.borders.map((e,i, arr) => {
+                               if(i + 1 === arr.length) {
+                                return `${e}`;
+                               } else {
+                                return `${e}, `;
+                               }
+                        }) : 'N/A'}
+                    </td>
                 </tr>
                 <tr>
-                    <td>Population:</td>
-                    <td>{currentDisplay.population}</td>
+                    <th>Capital:</th>
+                    <td key={currentDisplay.capital}>{currentDisplay.capital}</td>
                 </tr>
+                <tr>
+                    <th>Population:</th>
+                    <td key={currentDisplay.population}>{currentDisplay.population}</td>
+                </tr>
+                <tr>
+                    <th>Continents: </th>
+                    {currentDisplay.continents.map((e) => <td key={currentDisplay.name.common}>{e}</td>)}
+                </tr>
+                </tbody>
             </table>
         </div>
     )

@@ -12,13 +12,11 @@ export const isLoadingSlice = createSlice({
         isNotLoading: (state) => {
            state.value = false;
         },
-        toggleLoading: (state) => {
-            state.value = !state.value;
-        }
+        
     }
 });
 
 
-export const {isAppLoading, isNotLoading, toggleLoading} = isLoadingSlice.actions;
+export const {isAppLoading, isNotLoading} = isLoadingSlice.actions;
 export const selectLoading = (state) => state.isLoading.value;
 export default isLoadingSlice.reducer;
